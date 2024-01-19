@@ -23,7 +23,6 @@ export const Layout = () => {
 	return (
 		<LayoutAnt>
 			<Sider trigger={null} collapsible collapsed={collapsed}>
-				<div className="demo-logo-vertical" />
 				<Menu
 					theme="dark"
 					mode="inline"
@@ -48,7 +47,7 @@ export const Layout = () => {
 				/>
 			</Sider>
 			<LayoutAnt>
-				<Header style={{ padding: 0, background: colorBgContainer }}>
+				<Header className="layout__header" style={{ background: colorBgContainer }}>
 					<Button
 						type="text"
 						icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
