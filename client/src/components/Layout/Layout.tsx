@@ -11,6 +11,7 @@ import {
 import { useScreenSize } from "../../hooks";
 
 import './Layout.scss';
+import { RoutesEnum } from "../../enum";
 
 const MENU_BREAKPOINT = 1000;
 
@@ -39,15 +40,15 @@ export const Layout = () => {
 				className={`menu ${hidden ? 'menu--opacity-0' : 'menu--opacity-1'}`}>
 				<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
 					<Menu.Item key="1" icon={<UserOutlined />}>
-						<Link to="/login">Log In</Link>
+						<Link to={RoutesEnum.LOGIN}>Log In</Link>
 					</Menu.Item>
 
 					<Menu.Item key="2" icon={<TeamOutlined />}>
-						<Link to="/queue">Queue</Link>
+						<Link to={RoutesEnum.QUEUE}>Queue</Link>
 					</Menu.Item>
 
 					<Menu.Item key="3" icon={<FormOutlined />}>
-						<Link to="/create-ticket">Create Ticket</Link>
+						<Link to={RoutesEnum.CREATE_TICKET}>Create Ticket</Link>
 					</Menu.Item>
 				</Menu>
 			</Sider>
