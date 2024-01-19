@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layout as LayoutAnt, Menu, theme, FloatButton } from 'antd';
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
 	FormOutlined,
 	MenuFoldOutlined,
@@ -32,28 +32,23 @@ export const Layout = () => {
 	return (
 		<LayoutAnt className="layout">
 			<Sider hidden={hidden} trigger={null} collapsible collapsed={collapsed}>
-				<Menu
-					theme="dark"
-					mode="inline"
-					defaultSelectedKeys={['1']}
-					items={[
-						{
-							key: '1',
-							icon: <UserOutlined />,
-							label: 'Log In',
-						},
-						{
-							key: '2',
-							icon: <TeamOutlined />,
-							label: 'Queue',
-						},
-						{
-							key: '3',
-							icon: <FormOutlined />,
-							label: 'Create Ticket',
-						},
-					]}
-				/>
+				<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+					<Menu.Item key="1" icon={<UserOutlined />}>
+						<Link to="/login">Log In</Link>
+					</Menu.Item>
+
+					<Menu.Item key="2" icon={<TeamOutlined />}>
+						<Link to="/queue">Queue</Link>
+					</Menu.Item>
+
+					<Menu.Item key="3" icon={<FormOutlined />}>
+						<Link to="/create-ticket">Create Ticket</Link>
+					</Menu.Item>
+
+					<Menu.Item key="4" icon={<FormOutlined />}>
+						<Link to="/desktop">Desktop</Link>
+					</Menu.Item>
+				</Menu>
 			</Sider>
 			<LayoutAnt>
 				<Content
