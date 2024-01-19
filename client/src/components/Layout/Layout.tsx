@@ -21,7 +21,7 @@ export const Layout = () => {
 	} = theme.useToken();
 
 	return (
-		<LayoutAnt>
+		<LayoutAnt className="layout">
 			<Sider trigger={null} collapsible collapsed={collapsed}>
 				<Menu
 					theme="dark"
