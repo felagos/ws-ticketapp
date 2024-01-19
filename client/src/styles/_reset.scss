@@ -9,8 +9,6 @@ a:hover {
 }
 
 html {
-	min-width: 100vw;
-	min-height: 100vh;
 	box-sizing: border-box;
 }
 
@@ -23,8 +21,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-	min-width: 100vw;
-	min-height: 100vh;
 }
 
 h1 {
@@ -56,9 +52,4 @@ button:focus-visible {
 
 h3 {
   margin-top: 0;
-}
-
-#root {
-	min-width: 100vw;
-	min-height: 100vh;
 }
