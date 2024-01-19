@@ -1,4 +1,6 @@
 import { Button, Divider, Form, Input, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { RoutesEnum } from '../enum';
 
 const { Title, Text } = Typography
 
@@ -7,11 +9,15 @@ type FieldType = {
 	password?: string;
 };
 
-const onFinish = (values: FieldType) => {
-	console.log('Success:', values);
-};
-
 export const LogInPage = () => {
+	const navigate = useNavigate();
+
+	const onFinish = (values: FieldType) => {
+		console.log('Success:', values);
+		navigate(RoutesEnum.DESKTOP);
+	};
+	
+
 	return (
 		<>
 			<Title level={2}>Log In</Title>

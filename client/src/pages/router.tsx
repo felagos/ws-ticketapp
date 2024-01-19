@@ -2,6 +2,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Layout } from "../components";
 import { LogInPage } from "./LogInPage";
 import { CreateTicketPage, DesktopPage, QueuePage } from ".";
+import { RoutesEnum } from "../enum";
 
 const router = createBrowserRouter([
 	{
@@ -10,23 +11,23 @@ const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				path: "/login",
+				path: RoutesEnum.LOGIN,
 				element: <LogInPage />,
 			},
 			{
-				path: "/queue",
+				path: RoutesEnum.QUEUE,
 				element: <QueuePage />,
 			},
 			{
-				path: "/create-ticket",
+				path: RoutesEnum.CREATE_TICKET,
 				element: <CreateTicketPage />,
 			},
 			{
-				path: "/desktop",
+				path: RoutesEnum.DESKTOP,
 				element: <DesktopPage />,
 			},
 			{
-				path: "*",
+				path: RoutesEnum.NOT_FOUND,
 				element: <Navigate to="/" />,
 			}
 		]
