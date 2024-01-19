@@ -1,5 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components";
+import { LogInPage } from "./LogInPage";
+import { CreateTicketPage, QueuePage } from ".";
 
 const router = createBrowserRouter([
 	{
@@ -11,9 +13,21 @@ const router = createBrowserRouter([
 				element: <div>Home</div>,
 			},
 			{
-				path: "/about",
-				element: <div>About</div>,
+				path: "/login",
+				element: <LogInPage />,
 			},
+			{
+				path: "/queue",
+				element: <QueuePage />,
+			},
+			{
+				path: "/create-ticket",
+				element: <CreateTicketPage />,
+			},
+			{
+				path: "/desktop",
+				element: <div>Desktop</div>,
+			}
 		]
 	},
 ]);
