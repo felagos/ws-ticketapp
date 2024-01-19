@@ -44,10 +44,6 @@ export const Layout = () => {
 					<Menu.Item key="3" icon={<FormOutlined />}>
 						<Link to="/create-ticket">Create Ticket</Link>
 					</Menu.Item>
-
-					<Menu.Item key="4" icon={<FormOutlined />}>
-						<Link to="/desktop">Desktop</Link>
-					</Menu.Item>
 				</Menu>
 			</Sider>
 			<LayoutAnt>
