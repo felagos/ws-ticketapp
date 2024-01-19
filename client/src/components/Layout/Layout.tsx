@@ -10,11 +10,14 @@ import {
 } from '@ant-design/icons';
 
 import './Layout.scss';
+import { useScreenSize } from "../../hooks";
 
 const { Header, Sider, Content } = LayoutAnt;
 
 export const Layout = () => {
-	const [collapsed, setCollapsed] = useState(false);
+	const screen = useScreenSize();
+	const [hidden, setHidden] = useState(false);
+	const collapsed = screen.width < 1000;
 
 	const {
 		token: { colorBgContainer, borderRadiusLG },
@@ -22,7 +25,7 @@ export const Layout = () => {
 
 	return (
 		<LayoutAnt className="layout">
-			<Sider trigger={null} collapsible collapsed={collapsed}>
+			<Sider hidden={hidden} trigger={null} collapsible collapsed={collapsed}>
 				<Menu
 					theme="dark"
 					mode="inline"
@@ -50,8 +53,8 @@ export const Layout = () => {
 				<Header className="layout__header" style={{ background: colorBgContainer }}>
 					<Button
 						type="text"
-						icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-						onClick={() => setCollapsed(!collapsed)}
+						icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+						onClick={() => setHidden(!hidden)}
 						className="layout__collapsible"
 					/>
 				</Header>

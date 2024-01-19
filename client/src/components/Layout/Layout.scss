@@ -18,3 +18,13 @@
 		min-height: 280px;
 	}
 }
+
+@media (max-width: 1000px) {
+	.layout {
+
+		&__menu {
+			display: none;
+		}
+
+	}
+}
