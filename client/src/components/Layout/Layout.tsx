@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Layout as LayoutAnt, Menu, Button, theme } from 'antd';
+import { useEffect, useState } from "react";
+import { Layout as LayoutAnt, Menu, theme, FloatButton } from 'antd';
 import { Outlet } from "react-router-dom";
 import {
 	MenuFoldOutlined,
@@ -12,12 +12,16 @@ import {
 import './Layout.scss';
 import { useScreenSize } from "../../hooks";
 
-const { Header, Sider, Content } = LayoutAnt;
+const { Sider, Content } = LayoutAnt;
 
 export const Layout = () => {
 	const screen = useScreenSize();
 	const [hidden, setHidden] = useState(false);
 	const collapsed = screen.width < 1000;
+
+	useEffect(() => {
+		setHidden(screen.width < 1000);
+	}, [screen.width]);
 
 	const {
 		token: { colorBgContainer, borderRadiusLG },
@@ -50,14 +54,6 @@ export const Layout = () => {
 				/>
 			</Sider>
 			<LayoutAnt>
-				<Header className="layout__header" style={{ background: colorBgContainer }}>
-					<Button
-						type="text"
-						icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-						onClick={() => setHidden(!hidden)}
-						className="layout__collapsible"
-					/>
-				</Header>
 				<Content
 					className="layout__content"
 					style={{
@@ -68,6 +64,11 @@ export const Layout = () => {
 					<Outlet />
 				</Content>
 			</LayoutAnt>
+			<FloatButton
+				icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+				onClick={() => setHidden(!hidden)}
+				className="layout__collapsible"
+			/> 
 		</LayoutAnt>
 	)
 }
