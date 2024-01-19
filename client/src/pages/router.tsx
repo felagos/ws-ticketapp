@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components";
 import { LogInPage } from "./LogInPage";
-import { CreateTicketPage, QueuePage } from ".";
+import { CreateTicketPage, DesktopPage, QueuePage } from ".";
 
 const router = createBrowserRouter([
 	{
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/desktop",
-				element: <div>Desktop</div>,
+				element: <DesktopPage />,
 			}
 		]
 	},
