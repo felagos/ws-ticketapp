@@ -8,19 +8,21 @@ import {
 	UserOutlined,
 	VideoCameraOutlined,
 } from '@ant-design/icons';
+import { useScreenSize } from "../../hooks";
 
 import './Layout.scss';
-import { useScreenSize } from "../../hooks";
+
+const MENU_BREAKPOINT = 1000;
 
 const { Sider, Content } = LayoutAnt;
 
 export const Layout = () => {
 	const screen = useScreenSize();
 	const [hidden, setHidden] = useState(false);
-	const collapsed = screen.width < 1000;
+	const collapsed = screen.width < MENU_BREAKPOINT;
 
 	useEffect(() => {
-		setHidden(screen.width < 1000);
+		setHidden(screen.width < MENU_BREAKPOINT);
 	}, [screen.width]);
 
 	const {
