@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components";
 import { LogInPage } from "./LogInPage";
 import { CreateTicketPage, DesktopPage, QueuePage } from ".";
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
 			{
 				path: "/desktop",
 				element: <DesktopPage />,
+			},
+			{
+				path: "*",
+				element: <Navigate to="/" />,
 			}
 		]
 	},
