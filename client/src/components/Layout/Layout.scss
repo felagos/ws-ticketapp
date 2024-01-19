@@ -1,6 +1,18 @@
 .layout {
-    padding-left: 16px;
-    padding-right: 16px;
-		min-width: 100vw;
-		min-height: 100vh;
+	padding-left: 16px;
+	padding-right: 16px;
+	min-width: 100vw;
+	min-height: 100vh;
+
+	&__collapsible {
+		font-size: 16px;
+		width: 64px !important;
+		height: 64px;
+	}
+
+	&__content {
+		margin: 24px 16px;
+		padding: 24px;
+		min-height: 280px;
+	}
 }
