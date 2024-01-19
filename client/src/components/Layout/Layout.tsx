@@ -6,7 +6,6 @@ import {
 	MenuUnfoldOutlined,
 	UploadOutlined,
 	UserOutlined,
-	VideoCameraOutlined,
 } from '@ant-design/icons';
 import { useScreenSize } from "../../hooks";
 
@@ -40,17 +39,17 @@ export const Layout = () => {
 						{
 							key: '1',
 							icon: <UserOutlined />,
-							label: 'nav 1',
+							label: 'Log In',
 						},
 						{
-							key: '2',
-							icon: <VideoCameraOutlined />,
-							label: 'nav 2',
+							key: '1',
+							icon: <UserOutlined />,
+							label: 'Queue',
 						},
 						{
 							key: '3',
 							icon: <UploadOutlined />,
-							label: 'nav 3',
+							label: 'Create Ticket',
 						},
 					]}
 				/>
