@@ -1,13 +1,10 @@
 import { Layout as LayoutAnt } from "antd";
+import { Outlet } from "react-router-dom";
 
 import './Layout.scss';
 
-interface Props {
-	children: React.ReactNode | React.ReactNode[];
-}
-
-export const Layout =  ({ children }: Props) => (
+export const Layout =  () => (
 	<LayoutAnt className="layout">
-		{children}
+		<Outlet />
 	</LayoutAnt>
 )
