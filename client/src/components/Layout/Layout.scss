@@ -2,6 +2,22 @@
 	min-width: 100vw;
 	min-height: 100vh;
 
+	.menu {
+		transform: translateX(-10px);
+		transition: all 5s ease;
+
+		&--opacity-1 {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		&--opacity-0 {
+			opacity: 0;
+			transform: translateX(-10px);
+		}
+	}
+
+
 	&__collapsible {
 		display: none;
 		font-size: 16px;
@@ -23,6 +39,10 @@
 
 @media (max-width: 1000px) {
 	.layout {
+
+		&__menu {
+			opacity: 1;
+		}
 
 		&__collapsible {
 			display: block;

@@ -31,7 +31,12 @@ export const Layout = () => {
 
 	return (
 		<LayoutAnt className="layout">
-			<Sider hidden={hidden} trigger={null} collapsible collapsed={collapsed}>
+			<Sider
+				hidden={hidden}
+				trigger={null}
+				collapsible
+				collapsed={collapsed}
+				className={`menu ${hidden ? 'menu--opacity-0' : 'menu--opacity-1'}`}>
 				<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
 					<Menu.Item key="1" icon={<UserOutlined />}>
 						<Link to="/login">Log In</Link>
@@ -61,7 +66,7 @@ export const Layout = () => {
 				icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 				onClick={() => setHidden(!hidden)}
 				className="layout__collapsible"
-			/> 
+			/>
 		</LayoutAnt>
 	)
 }
