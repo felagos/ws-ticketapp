@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Layout as LayoutAnt, Menu, theme, FloatButton } from 'antd';
 import { Outlet } from "react-router-dom";
 import {
+	FormOutlined,
 	MenuFoldOutlined,
 	MenuUnfoldOutlined,
-	UploadOutlined,
+	TeamOutlined,
 	UserOutlined,
 } from '@ant-design/icons';
 import { useScreenSize } from "../../hooks";
@@ -42,13 +43,13 @@ export const Layout = () => {
 							label: 'Log In',
 						},
 						{
-							key: '1',
-							icon: <UserOutlined />,
+							key: '2',
+							icon: <TeamOutlined />,
 							label: 'Queue',
 						},
 						{
 							key: '3',
-							icon: <UploadOutlined />,
+							icon: <FormOutlined />,
 							label: 'Create Ticket',
 						},
 					]}
