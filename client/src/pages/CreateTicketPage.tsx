@@ -26,7 +26,7 @@ export const CreateTicketPage = () => {
 				<Col span={14} offset={6} className="u-center">
 					<Text>Your number</Text>
 					<br />
-					<Text type="success" style={{ fontSize: 55 }}>
+					<Text type="success" className="u-font-55">
 						55
 					</Text>
 				</Col>
