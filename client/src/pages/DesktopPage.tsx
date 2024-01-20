@@ -1,11 +1,13 @@
-import { CloseCircleOutlined } from "@ant-design/icons"
-import { Button, Col, Row, Typography } from "antd"
+import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons"
+import { Button, Col, Divider, Row, Typography } from "antd"
 
 import "./DesktopPage.scss"
 
 export const DesktopPage = () => {
 
 	const handleExit = () => { }
+
+	const handleNextTicket = () => { }
 
 	return (
 		<>
@@ -28,6 +30,29 @@ export const DesktopPage = () => {
 					</Button>
 				</Col>
 			</Row>
+
+			<Divider />
+
+			<Row>
+				<Col>
+					<Typography.Title level={3}>You are attending ticket: </Typography.Title>
+					<Typography.Text style={{ fontSize: 30 }} type="danger">No. 55</Typography.Text>
+				</Col>
+			</Row>
+
+			<Row>
+				<Col  xl={24} md={24} sm={24} className="right">
+					<Button
+						type="primary"
+						shape="round"
+						onClick={handleNextTicket}
+						icon={<RightOutlined />}
+					>
+						Next Ticket
+					</Button>
+				</Col>
+			</Row>
+
 		</>
 	)
 }
