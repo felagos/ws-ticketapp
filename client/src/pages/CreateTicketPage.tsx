@@ -22,7 +22,7 @@ export const CreateTicketPage = () => {
 					</Button>
 				</Col>
 			</Row>
-			<Row style={{ marginTop: 50 }}>
+			<Row className="u-mt-50">
 				<Col span={14} offset={6} className="u-center">
 					<Text>Your number</Text>
 					<br />

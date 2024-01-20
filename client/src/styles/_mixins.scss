@@ -3,5 +3,8 @@
 		.u-mb-#{$i} {
 			margin-bottom: #{$i}rem;
 		}
+		.u-mt-#{$i} {
+			margin-top: #{$i}rem;
+		}
 	}
 }
