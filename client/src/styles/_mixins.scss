@@ -1,10 +1,10 @@
 @mixin margin {
 	@for $i from 1 to 100 {
 		.u-mb-#{$i} {
-			margin-bottom: #{$i}rem;
+			margin-bottom: #{$i}px;
 		}
 		.u-mt-#{$i} {
-			margin-top: #{$i}rem;
+			margin-top: #{$i}px;
 		}
 	}
 }
