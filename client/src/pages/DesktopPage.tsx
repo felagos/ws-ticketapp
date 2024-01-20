@@ -36,12 +36,12 @@ export const DesktopPage = () => {
 			<Row>
 				<Col>
 					<Typography.Title level={3}>You are attending ticket: </Typography.Title>
-					<Typography.Text style={{ fontSize: 30 }} type="danger">No. 55</Typography.Text>
+					<Typography.Text className="u-font-30" type="danger">No. 55</Typography.Text>
 				</Col>
 			</Row>
 
 			<Row>
-				<Col  xl={24} md={24} sm={24} className="right">
+				<Col xl={24} md={24} sm={24} className="right">
 					<Button
 						type="primary"
 						shape="round"
