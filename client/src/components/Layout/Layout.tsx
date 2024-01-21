@@ -12,6 +12,7 @@ import { useScreenSize } from "../../hooks";
 
 import './Layout.scss';
 import { RoutesEnum } from "../../enum";
+import { useAuthStore } from "../../store";
 
 const MENU_BREAKPOINT = 1000;
 
@@ -19,6 +20,7 @@ const { Sider, Content } = LayoutAnt;
 
 export const Layout = () => {
 	const screen = useScreenSize();
+	const hiddenMenu = useAuthStore(state => state.hiddenMenu);
 	const [hidden, setHidden] = useState(false);
 	const collapsed = screen.width < MENU_BREAKPOINT;
 
@@ -33,7 +35,7 @@ export const Layout = () => {
 	return (
 		<LayoutAnt className="layout">
 			<Sider
-				hidden={hidden}
+				hidden={hidden && hiddenMenu}
 				trigger={null}
 				collapsible
 				collapsed={collapsed}
@@ -63,11 +65,13 @@ export const Layout = () => {
 					<Outlet />
 				</Content>
 			</LayoutAnt>
-			<FloatButton
-				icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-				onClick={() => setHidden(!hidden)}
-				className="layout__collapsible"
-			/>
+			{!hiddenMenu && (
+				<FloatButton
+					icon={hidden ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+					onClick={() => setHidden(!hidden)}
+					className="layout__collapsible"
+				/>
+			)}
 		</LayoutAnt>
 	)
 }
