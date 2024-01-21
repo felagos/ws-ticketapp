@@ -34,26 +34,28 @@ export const Layout = () => {
 
 	return (
 		<LayoutAnt className="layout">
-			<Sider
-				hidden={hidden && hiddenMenu}
-				trigger={null}
-				collapsible
-				collapsed={collapsed}
-				className={`menu ${hidden ? 'menu--opacity-0' : 'menu--opacity-1'}`}>
-				<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-					<Menu.Item key="1" icon={<UserOutlined />}>
-						<Link to={RoutesEnum.LOGIN}>Log In</Link>
-					</Menu.Item>
+			{!hiddenMenu && (
+				<Sider
+					hidden={hidden}
+					trigger={null}
+					collapsible
+					collapsed={collapsed}
+					className={`menu ${hidden ? 'menu--opacity-0' : 'menu--opacity-1'}`}>
+					<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+						<Menu.Item key="1" icon={<UserOutlined />}>
+							<Link to={RoutesEnum.LOGIN}>Log In</Link>
+						</Menu.Item>
 
-					<Menu.Item key="2" icon={<TeamOutlined />}>
-						<Link to={RoutesEnum.QUEUE}>Queue</Link>
-					</Menu.Item>
+						<Menu.Item key="2" icon={<TeamOutlined />}>
+							<Link to={RoutesEnum.QUEUE}>Queue</Link>
+						</Menu.Item>
 
-					<Menu.Item key="3" icon={<FormOutlined />}>
-						<Link to={RoutesEnum.CREATE_TICKET}>Create Ticket</Link>
-					</Menu.Item>
-				</Menu>
-			</Sider>
+						<Menu.Item key="3" icon={<FormOutlined />}>
+							<Link to={RoutesEnum.CREATE_TICKET}>Create Ticket</Link>
+						</Menu.Item>
+					</Menu>
+				</Sider>
+			)}
 			<LayoutAnt>
 				<Content
 					className="layout__content"
