@@ -1,6 +1,7 @@
 import { Button, Divider, Form, Input, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { RoutesEnum } from '../enum';
+import { useMenu } from '../hooks';
 
 const { Title, Text } = Typography
 
@@ -11,6 +12,8 @@ type FieldType = {
 
 export const LogInPage = () => {
 	const navigate = useNavigate();
+
+	useMenu(false);
 
 	const onFinish = (values: FieldType) => {
 		console.log('Success:', values);
