@@ -1,4 +1,4 @@
-import { Col, List, Row, Typography } from "antd";
+import { Col, Divider, List, Row, Typography } from "antd";
 
 interface Ticket {
 	ticketNo: number;
@@ -52,13 +52,28 @@ export const QueuePage = () => {
 				title={`Ticket No. ${item.ticketNo}`}
 				description={
 					<>
-						<span className="u-mr-10">Agent: </span>
-						<span>{item.agente}</span>
+						<Typography.Text type="secondary">Agent: </Typography.Text>
+						<Typography.Text>{item.agente}</Typography.Text>
 
-						<br />
+						<Typography.Text type="secondary" className="u-ml-10">On desk: </Typography.Text>
+						<Typography.Text>{item.escritorio}</Typography.Text>
+					</>
+				}
+			/>
+		</List.Item>
+	)
 
-						<span className="u-mr-10">On desk: </span>
-						<span>{item.escritorio}</span>
+	const renderHistoryItem = (item: Ticket) => (
+		<List.Item>
+			<List.Item.Meta
+				title={`Ticket No. ${item.ticketNo}`}
+				description={
+					<>
+						<Typography.Text type="secondary" className="u-ml-10">Agent: </Typography.Text>
+						<Typography.Text>{item.agente}</Typography.Text>
+
+						<Typography.Text type="secondary">On desk: </Typography.Text>
+						<Typography.Text>{item.escritorio}</Typography.Text>
 					</>
 				}
 			/>
@@ -76,6 +91,11 @@ export const QueuePage = () => {
 					/>
 				</Col>
 				<Col span={12}>
+					<Divider>History</Divider>
+					<List
+						dataSource={data.slice(3)}
+						renderItem={renderHistoryItem}
+					/>
 				</Col>
 			</Row>
 		</>
