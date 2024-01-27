@@ -1,5 +1,5 @@
 export * from './index';
-export * from './useHooks';
+export * from './useSocket';
 export * from './useMenu';
 export * from './useScreenSize';
 export * from './useUser';
