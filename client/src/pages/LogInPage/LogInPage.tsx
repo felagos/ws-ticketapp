@@ -52,9 +52,9 @@ export const LogInPage = () => {
 					label="Desktop"
 					name="desktop"
 					className='form-login__desktop'
-					rules={[{ required: true, message: 'Please input your desktop!' }, { min: 1, message: 'Desktop must be greater than 0!' }]}
+					rules={[{ required: true, message: 'Please input your desktop!' } ]}
 				>
-					<InputNumber min={1} className='form-login__desktop' />
+					<InputNumber className='form-login__desktop' />
 				</Form.Item>
 
 				<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
