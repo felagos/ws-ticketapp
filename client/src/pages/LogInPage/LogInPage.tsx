@@ -1,7 +1,7 @@
 import { Button, Divider, Form, Input, InputNumber, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { RoutesEnum } from '../enum';
-import { useMenu } from '../hooks';
+import { RoutesEnum } from '../../enum';
+import { useMenu } from '../../hooks';
 
 import './LogInPage.scss';
 

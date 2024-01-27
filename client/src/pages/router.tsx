@@ -1,6 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "../components";
-import { LogInPage } from "./LogInPage";
+import { LogInPage } from "./LogInPage/LogInPage";
 import { CreateTicketPage, DesktopPage, QueuePage } from ".";
 import { RoutesEnum } from "../enum";
 

@@ -1,6 +1,6 @@
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons"
 import { Button, Col, Divider, Row, Typography } from "antd"
-import { useUser } from "../hooks"
+import { useUser } from "../../hooks"
 
 import "./DesktopPage.scss"
 
