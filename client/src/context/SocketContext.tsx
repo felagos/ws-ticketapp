@@ -13,7 +13,7 @@ interface Props {
 	children: ReactNode;
 }
 
-const SocketContext = createContext({} as SocketContextProps);
+export const SocketContext = createContext({} as SocketContextProps);
 
 export const useSocketContext = () => useContext(SocketContext);
 
