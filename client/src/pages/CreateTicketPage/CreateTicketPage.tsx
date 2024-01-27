@@ -1,9 +1,11 @@
 import { DownloadOutlined } from "@ant-design/icons";
 import { Button, Col, Row, Typography } from "antd"
+import { useUser } from "../../hooks";
 
 const { Text, Title } = Typography;
 
 export const CreateTicketPage = () => {
+	const { user } = useUser();
 	const handleNewTicket = () => { }
 
 	return (
@@ -27,7 +29,7 @@ export const CreateTicketPage = () => {
 					<Text>Your number</Text>
 					<br />
 					<Text type="success" className="u-font-55">
-						55
+						{user.desktop}
 					</Text>
 				</Col>
 			</Row>
