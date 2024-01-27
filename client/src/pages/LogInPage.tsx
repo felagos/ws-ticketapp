@@ -8,8 +8,8 @@ import './LogInPage.scss';
 const { Title, Text } = Typography
 
 type FieldType = {
-	username?: string;
-	desktop?: string;
+	agent: string;
+	desktop: string;
 };
 
 export const LogInPage = () => {
@@ -18,8 +18,9 @@ export const LogInPage = () => {
 	useMenu(false);
 
 	const onFinish = (values: FieldType) => {
-		localStorage.setItem('agent', values.username ?? '');
-		localStorage.setItem('desktop', values.desktop ?? '');
+		localStorage.setItem('agent', values.agent);
+		localStorage.setItem('desktop', values.desktop);
+	
 		navigate(RoutesEnum.DESKTOP);
 	};
 
@@ -40,8 +41,8 @@ export const LogInPage = () => {
 				className='form-login'
 			>
 				<Form.Item<FieldType>
-					label="Username"
-					name="username"
+					label="Agent"
+					name="agent"
 					rules={[{ required: true, message: 'Please input your username!' }]}
 				>
 					<Input />
