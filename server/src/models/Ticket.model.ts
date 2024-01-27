@@ -6,8 +6,8 @@ export class TicketModel {
 
 	constructor(
 		private readonly numberTicket: number,
-		private readonly desktop: number,
-		private readonly agent: string) { }
+		private readonly desktop?: number,
+		private readonly agent?: string) { }
 
 	getId() {
 		return this.id;
