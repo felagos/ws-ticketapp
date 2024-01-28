@@ -1,15 +1,22 @@
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons"
 import { Button, Col, Divider, Row, Typography } from "antd"
-import { useUser } from "../../hooks"
+import { useSocket, useUser } from "../../hooks"
 
 import "./DesktopPage.scss"
+import { SocketEvents } from "../../enum"
+import { TicketModel } from "../../models"
 
 export const DesktopPage = () => {
 	const { user } = useUser();
+	const { socket } = useSocket();
 
 	const handleExit = () => { }
 
-	const handleNextTicket = () => { }
+	const handleNextTicket = () => {
+		socket.emit(SocketEvents.NEXT_TICKET, user, (ticket: TicketModel) => {
+			console.log(ticket);
+		});
+	}
 
 	return (
 		<>
