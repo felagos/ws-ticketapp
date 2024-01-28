@@ -5,16 +5,18 @@ import { useSocket, useUser } from "../../hooks"
 import "./DesktopPage.scss"
 import { SocketEvents } from "../../enum"
 import { TicketModel } from "../../models"
+import { useState } from "react"
 
 export const DesktopPage = () => {
 	const { user } = useUser();
 	const { socket } = useSocket();
+	const [ticket, setTicket] = useState<TicketModel>();
 
 	const handleExit = () => { }
 
 	const handleNextTicket = () => {
 		socket.emit(SocketEvents.NEXT_TICKET, user, (ticket: TicketModel) => {
-			console.log(ticket);
+			setTicket(ticket);
 		});
 	}
 
@@ -42,12 +44,14 @@ export const DesktopPage = () => {
 
 			<Divider />
 
-			<Row>
-				<Col>
-					<Typography.Title level={3}>You are attending ticket: </Typography.Title>
-					<Typography.Text className="u-font-30" type="danger">No. {user.desktop}</Typography.Text>
-				</Col>
-			</Row>
+			{ticket ? (
+				<Row>
+					<Col>
+						<Typography.Title level={3}>You are attending ticket: </Typography.Title>
+						<Typography.Text className="u-font-30" type="danger">No. {user.desktop}</Typography.Text>
+					</Col>
+				</Row>
+			) : null}
 
 			<Row>
 				<Col xl={24} md={24} sm={24} className="right">
