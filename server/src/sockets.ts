@@ -25,6 +25,9 @@ export class Sockets {
 			socket.on(SocketEvents.NEXT_TICKET, (user: UserModel, cb: Function) => {
 				const ticket = this.ticketList.attendTicket(user.agent, user.desktop);
 				cb(ticket);
+
+				this.io.emit(SocketEvents.TICKET_ASSIGNED, this.ticketList.getLastTickets(13));
+
 			});
 
 		});

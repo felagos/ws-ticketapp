@@ -1,79 +1,53 @@
 import { Col, Divider, List, Row, Typography } from "antd";
-
-interface Ticket {
-	ticketNo: number;
-	escritorio: number;
-	agente: string;
-}
-
-const data: Ticket[] = [
-	{
-		ticketNo: 33,
-		escritorio: 3,
-		agente: 'Jotaro Kujo'
-	},
-	{
-		ticketNo: 34,
-		escritorio: 4,
-		agente: 'Jonathan Joestar'
-	},
-	{
-		ticketNo: 35,
-		escritorio: 5,
-		agente: 'Joseph Joestar'
-	},
-	{
-		ticketNo: 36,
-		escritorio: 3,
-		agente: 'Jotaro Kujo'
-	},
-	{
-		ticketNo: 37,
-		escritorio: 3,
-		agente: 'Jotaro Kujo'
-	},
-	{
-		ticketNo: 38,
-		escritorio: 2,
-		agente: 'Dio Brando'
-	},
-	{
-		ticketNo: 39,
-		escritorio: 5,
-		agente: 'Joseph Joestar'
-	},
-];
+import { useSocket } from "../../hooks";
+import { useEffect, useState } from "react";
+import { SocketEvents } from "../../enum";
+import { TicketModel } from "../../models";
 
 export const QueuePage = () => {
 
-	const renderItem = (item: Ticket) => (
+	const { socket } = useSocket();
+	const [tickets, setTickets] = useState<TicketModel[]>([]);
+
+	useEffect(() => {
+		socket.on(SocketEvents.TICKET_ASSIGNED, (tickets: TicketModel[]) => {
+			setTickets(tickets);
+		});
+
+		return () => {
+			socket.off(SocketEvents.TICKET_ASSIGNED);
+		}
+
+	}, [socket])
+
+	const renderItem = (item: TicketModel) => (
 		<List.Item>
 			<List.Item.Meta
-				title={`Ticket No. ${item.ticketNo}`}
+				title={`Ticket No. ${item.numberTicket}`}
 				description={
 					<>
 						<Typography.Text type="secondary">Agent: </Typography.Text>
-						<Typography.Text>{item.agente}</Typography.Text>
+						<Typography.Text>{item.agent}</Typography.Text>
 
 						<Typography.Text type="secondary" className="u-ml-10">On desk: </Typography.Text>
-						<Typography.Text>{item.escritorio}</Typography.Text>
+						<Typography.Text>{item.desktop}</Typography.Text>
 					</>
 				}
 			/>
 		</List.Item>
 	)
 
-	const renderHistoryItem = (item: Ticket) => (
+	const renderHistoryItem = (item: TicketModel) => (
 		<List.Item>
 			<List.Item.Meta
-				title={`Ticket No. ${item.ticketNo}`}
+				title={`Ticket No. ${item.numberTicket}`}
 				description={
 					<>
 						<Typography.Text type="secondary" className="u-ml-10">Agent: </Typography.Text>
-						<Typography.Text>{item.agente}</Typography.Text>
+						<Typography.Text>{item.agent}</Typography.Text>
 
 						<Typography.Text type="secondary">On desk: </Typography.Text>
-						<Typography.Text>{item.escritorio}</Typography.Text>
+						<Typography.Text>{item.desktop}</Typography.Text>
 					</>
 				}
 			/>
@@ -86,14 +60,14 @@ export const QueuePage = () => {
 			<Row>
 				<Col span={12}>
 					<List
-						dataSource={data.slice(0, 3)}
+						dataSource={tickets.slice(0, 3)}
 						renderItem={renderItem}
 					/>
 				</Col>
 				<Col span={12}>
 					<Divider>History</Divider>
 					<List
-						dataSource={data.slice(3)}
+						dataSource={tickets.slice(3)}
 						renderItem={renderHistoryItem}
 					/>
 				</Col>
