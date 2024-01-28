@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Layout as LayoutAnt, Menu, theme, FloatButton } from 'antd';
 import { Outlet, useNavigate } from "react-router-dom";
 import {
+	DesktopOutlined,
 	FormOutlined,
 	MenuFoldOutlined,
 	MenuUnfoldOutlined,
@@ -63,7 +64,14 @@ export const Layout = () => {
 							title: 'Create Ticket',
 							label: 'Create Ticket',
 							onClick: () => navigate(RoutesEnum.CREATE_TICKET),
-						}
+						},
+						{
+							key: '4',
+							icon: <DesktopOutlined />,
+							title: 'Desktop',
+							label: 'Desktop',
+							onClick: () => navigate(RoutesEnum.DESKTOP),
+						},
 					]} />
 				</Sider>
 			)}
