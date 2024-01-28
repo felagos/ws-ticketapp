@@ -40,7 +40,7 @@ export const CreateTicketPage = () => {
 						<Text>Your number</Text>
 						<br />
 						<Text type="success" className="u-font-55">
-							{ticket?.numberTicket}
+							{ticket.numberTicket}
 						</Text>
 					</Col>
 				</Row>
