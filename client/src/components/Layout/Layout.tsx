@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layout as LayoutAnt, Menu, theme, FloatButton } from 'antd';
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import {
 	FormOutlined,
 	MenuFoldOutlined,
@@ -20,6 +20,7 @@ const { Sider, Content } = LayoutAnt;
 
 export const Layout = () => {
 	const screen = useScreenSize();
+	const navigate = useNavigate();
 	const hiddenMenu = useAuthStore(state => state.hiddenMenu);
 	const [hidden, setHidden] = useState(false);
 	const collapsed = screen.width < MENU_BREAKPOINT;
@@ -41,19 +42,29 @@ export const Layout = () => {
 					collapsible
 					collapsed={collapsed}
 					className={`menu ${hidden ? 'menu--opacity-0' : 'menu--opacity-1'}`}>
-					<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-						<Menu.Item key="1" icon={<UserOutlined />}>
-							<Link to={RoutesEnum.LOGIN}>Log In</Link>
-						</Menu.Item>
-
-						<Menu.Item key="2" icon={<TeamOutlined />}>
-							<Link to={RoutesEnum.QUEUE}>Queue</Link>
-						</Menu.Item>
-
-						<Menu.Item key="3" icon={<FormOutlined />}>
-							<Link to={RoutesEnum.CREATE_TICKET}>Create Ticket</Link>
-						</Menu.Item>
-					</Menu>
+					<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={[
+						{
+							key: '1',
+							icon: <UserOutlined />,
+							title: 'Log In',
+							label: 'Log In',
+							onClick: () => navigate(RoutesEnum.LOGIN),
+						},
+						{
+							key: '2',
+							icon: <TeamOutlined />,
+							title: 'Queue',
+							label: 'Queue',
+							onClick: () => navigate(RoutesEnum.QUEUE),
+						},
+						{
+							key: '3',
+							icon: <FormOutlined />,
+							title: 'Create Ticket',
+							label: 'Create Ticket',
+							onClick: () => navigate(RoutesEnum.CREATE_TICKET),
+						}
+					]} />
 				</Sider>
 			)}
 			<LayoutAnt>
