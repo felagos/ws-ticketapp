@@ -48,7 +48,7 @@ export const DesktopPage = () => {
 				<Row>
 					<Col>
 						<Typography.Title level={3}>You are attending ticket: </Typography.Title>
-						<Typography.Text className="u-font-30" type="danger">No. {user.desktop}</Typography.Text>
+						<Typography.Text className="u-font-30" type="danger">No. {ticket.numberTicket}</Typography.Text>
 					</Col>
 				</Row>
 			) : null}
