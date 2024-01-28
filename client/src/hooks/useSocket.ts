@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import io from "socket.io-client";
 import env from "../env";
+import { SocketEvents } from "../enum";
 
 const connectSocket = (url: string) => {
 	return io(url);
@@ -11,11 +12,11 @@ export const useSocket = (url: string = env.SOCKET_URL) => {
 	const [isOnline, setIsOnline] = useState(false);
 
 	useEffect(() => {
-		socket.on('connect', () => {
+		socket.on(SocketEvents.CONNECT, () => {
 			setIsOnline(true);
 		});
 
-		socket.on('disconnect', () => {
+		socket.on(SocketEvents.DISCONNECT, () => {
 			setIsOnline(false);
 		});
 
